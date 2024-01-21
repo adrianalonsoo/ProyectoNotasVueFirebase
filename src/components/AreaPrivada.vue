@@ -26,6 +26,7 @@ let contenidoNota="";
 
 console.log(usuario);
 
+  //funcion crear nota
 function altaNota(){
   
 
@@ -46,12 +47,13 @@ function altaNota(){
   })
 }
 
+  //funcion para eliminar nota 
 function eliminarNota(id){
   deleteDoc(doc(db,"todos",id))
 }
 
 
-
+//funciones para cambiar la prioridad
 function cambiarPrioridad(id){
   const notaActualizada = doc(db,"todos",id)
   updateDoc(notaActualizada,{
@@ -66,12 +68,13 @@ function cambiarPrioridadM(id){
   });
 }
 
-
+//funcion para subir fichero
 function subirAjdunto(e){
   file = e.target.files[0];
   console.log(file);
 }
 
+  //funcion para cerrarsesion
 function cerrarSesion()
 {
     signOut(auth).then(() => {
