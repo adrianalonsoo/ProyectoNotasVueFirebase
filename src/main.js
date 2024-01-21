@@ -9,6 +9,7 @@ import inicio from './components/inicio.vue'
 import AreaPrivada from './components/AreaPrivada.vue'
 import Administracion from './components/Administracion.vue'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+///creamos rutas
 const routes=[
   {
     path:'/',
@@ -33,7 +34,7 @@ const router = createRouter({
   routes,
 })
 
-
+//protegemos las rutas para que solo puedas entrar si estas logueado
 router.beforeEach((to,from)=>
 {
   
@@ -46,7 +47,7 @@ router.beforeEach((to,from)=>
 
   
 })
-
+//protegemos las rutas para que solo puedas entrar si estas logueado
 router.beforeEach((to,from)=>{
   if(to.path=="/administracion"&&!eresAdmin){
     return false;
