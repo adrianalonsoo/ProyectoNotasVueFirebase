@@ -21,15 +21,17 @@ let todos = useCollection(collection(db,"todos"));
 
 let usuario = ref(auth.currentUser);
 
-//let list = useCollection(query(colleccion ,where("idusuario","==",id)));
+
 let file=null;
 
 let contenidoNota="";
 
+//para el usuario admin que ve todas las notas
 const email="admin@admin.com";
 const password="administrador";
 
 
+//funcion donde se crean las notas
 function altaNota(){
   
 
@@ -50,12 +52,13 @@ function altaNota(){
   })
 }
 
+  //funcion para eliminar las notas con su id
 function eliminarNota(id){
   deleteDoc(doc(db,"todos",id))
 }
 
 
-
+//funcion para cambiar la prioridad de las notas
 function cambiarPrioridad(id){
   const notaActualizada = doc(db,"todos",id)
   updateDoc(notaActualizada,{
@@ -63,7 +66,7 @@ function cambiarPrioridad(id){
   });
 }
 
-
+//funcion para iniciar sesion con el email y la pass
 function inicio(){
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -78,7 +81,7 @@ function inicio(){
 
 }
 
-
+//funcion para cambiar la prioridad de las notas en media
 function cambiarPrioridadM(id){
   const notaActualizada = doc(db,"todos",id)
   updateDoc(notaActualizada,{
